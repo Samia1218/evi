@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style type="text/css">
+    body {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+      background-color: #1976d2;
+      color: #fff;
+      display: flex;
+      width: 100%;
+      height: 50px;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .container {
+      /* display: co; */
+      justify-content: center;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    .title {}
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      padding: 5px;
+    }
+
+    .content>div {
+      text-align: left !important;
+    }
+
+    .content-text {
+      text-align: right;
+    }
+
+    .content-container {
+      text-align: start;
+    }
+
+    .sub-header {
+      text-align: center;
+    }
+
+    .img-container>h4 {
+      /* display: inline-block; */
+      text-align: center;
+    }
+
+    .img-container>p {
+      /* display: inline-block; */
+      font-size: 8px;
+    }
+
+    .content-center {
+      text-align: center !important;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Application Form</h1>
+    <div class="header">
+      <h2 class="title">Personal Details</h2>
+    </div>
+    <div class="content-container">
+      <table>
+        <!--Personal Details  -->
+
+        <tr>
+          <th colspan="2">Personal Details</th>
+        </tr>
+        <tr>
+          <td>Nationality</td>
+          <td>{{tabOne.nationality}}</td>
+        </tr>
+
+        <tr>
+          <td>Passport Type</td>
+          <td>{{tabOne.passport_type}}</td>
+        </tr>
+        <tr>
+          <td>Port of arrvial</td>
+          <td>{{tabOne.port_of_arrival}}</td>
+        </tr>
+        <tr>
+          <td>Date of birth</td>
+          <td>{{tabOne.date_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td>{{tabOne.email}}</td>
+        </tr>
+        <tr>
+          <td>Visa Service</td>
+          <td>{{tabOne.visa_service}}</td>
+        </tr>
+        <tr>
+          <td>Expected Date of Arrival</td>
+          <td>{{tabOne.expected_date_of_arrival}}</td>
+        </tr>
+        <!--Applicant Details  -->
+        <tr>
+          <th colspan="2">Applicant Details</th>
+        </tr>
+        <tr>
+          <td>Surnamee</td>
+          <td>{{tabOne.surname}}</td>
+        </tr>
+        <tr>
+          <td>Given Name</td>
+          <td>{{tabOne.givenName}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{tabOne.gender}}</td>
+        </tr>
+        <tr>
+          <td>Town or City of Birth</td>
+          <td>{{tabOne.city_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Country of Birth</td>
+          <td>{{tabOne.country_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Citizenship/National Id no</td>
+          <td>{{tabOne.national_id_no}}</td>
+        </tr>
+        <tr>
+          <td>Religion</td>
+          <td>{{tabOne.religion}}</td>
+        </tr>
+        <tr>
+          <td>Visible identification mark</td>
+          <td>{{tabOne.visible_indetification_marks}}</td>
+        </tr>
+        <tr>
+          <td>Education qualification</td>
+          <td>{{tabOne.education_qualification}}</td>
+        </tr>
+        <tr>
+          <td>Did you accquire by birth or by naturalization</td>
+          <td>{{tabOne.accquire_nationlity_by_birth}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever sought (poltical or otherwise) in any country:
+          </td>
+          <td>{{tabOne.Have_you_ever_sought_asylum}}</td>
+        </tr>
+        <!-- Applicant occupation detail  -->
+        <tr>
+          <th colspan="2">Occupation Details</th>
+        </tr>
+        <tr>
+          <td>Present Occupation</td>
+          <td>{{tabOne.present_occupation}}</td>
+        </tr>
+        <tr>
+          <td>Employer Name/Busimess</td>
+          <td>{{tabOne.emp_name}}</td>
+        </tr>
+        <tr>
+          <td>Designation</td>
+          <td>{{tabOne.designation}}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{tabOne.address}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{tabOne.office_phone}}</td>
+        </tr>
+        <tr>
+          <td>Past Occupation</td>
+          <td>{{tabOne.past_occupation}}</td>
+        </tr>
+        <tr>
+          <td>Are/Were you in a Military/Semi-Military/Police/Security Organization</td>
+          <td>{{tabOne.in_military}}</td>
+        </tr>
+        {{#ifCond tabOne.in_military '==' 'yes'}}
+        <tr>
+          <td>Military Organization</td>
+          <td>{{tabOne.military_organization}}</td>
+        </tr>
+        <tr>
+          <td>Military Designation</td>
+          <td>{{tabOne.military_designation}}</td>
+        </tr>
+        <tr>
+          <td>Military Rank</td>
+          <td>{{tabOne.military_rank}}</td>
+        </tr>
+        <tr>
+          <td>Military Position</td>
+          <td>{{tabOne.military_position}}</td>
+        </tr>
+        {{/ifCond}}
+        <!--Passport Details  -->
+        <tr>
+          <th colspan="2">Passport Details</th>
+        </tr>
+        <tr>
+          <td>Passport Number</td>
+          <td>{{tabTwo.passport_number}}</td>
+        </tr>
+        <tr>
+          <td>Place of issue</td>
+          <td>{{tabTwo.place_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>date of issue</td>
+          <td>{{tabTwo.date_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>date of expire</td>
+          <td>12/12/21</td> <!-- left -->
+        </tr>
+        <tr>
+          <td>Any valid passport/identity Certificate(IC) held</td>
+          <td>{{tabTwo.passport_indetify_certificate}}</td>
+        </tr>
+        <tr>
+          <td>Country of issue</td>
+          <td>{{tabTwo.IC_country_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>Passport I/C Number</td>
+          <td>{{tabTwo.IC_passport_IC_number}}</td>
+        </tr>
+        <tr>
+          <td>Place of issue</td>
+          <td>{{tabTwo.IC_place_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>Nationality mentioned therein</td>
+          <td>{{tabTwo.IC_nationality_mentioned}}</td>
+        </tr>
+        <tr>
+          <td>Country of issue</td>
+          <td>{{tabTwo.IC_place_of_issue}}</td>
+        </tr>
+        <!--Applicant's Passport Details  -->
+
+        <tr>
+          <th colspan="2">Address Details</th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="content-center">Present Address</div>
+          </td>
+        </tr>
+        <tr>
+          <td>House No./Street</td>
+          <td>{{tabTwo.house_no}}</td>
+        </tr>
+        <tr>
+          <td>Village/Town/City</td>
+          <td>{{tabTwo.village_town_city}}</td>
+        </tr>
+        <tr>
+          <td>Country of Birth</td>
+          <td>{{tabTwo.country_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>State/Province/District</td>
+          <td>{{tabTwo.state_province_district}}</td>
+        </tr>
+        <tr>
+          <td>Postal/Zip Code</td>
+          <td>{{tabTwo.postal_zip_code}}</td>
+        </tr>
+        <tr>
+          <td>Mobile No</td>
+          <td>{{tabTwo.mobile_no}}</td>
+        </tr>
+        <tr>
+          <td>Phone No</td>
+          <td>{{tabTwo.phone}}</td>
+        </tr>
+        <tr>
+          <td>Postal/Zip Code</td>
+          <td>{{tabTwo.postal_zip_code}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="content-center">Permanent Address</div>
+          </td>
+        </tr>
+        <tr>
+          <td>House No./Street</td>
+          <td>{{tabTwo.permanent_house_no}}</td>
+        </tr>
+        <tr>
+          <td>Village/Town/City</td>
+          <td>{{tabTwo.permanent_village_town_city}}</td>
+        </tr>
+
+        <tr>
+          <td>State/Province/District</td>
+          <td>{{tabTwo.permanent_state_province_district}}</td>
+        </tr>
+        <!-- Family Details -->
+        <tr>
+          <th colspan="2">Family Details</th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="content-center">Father's Details</div>
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{tabTwo.father_name}}</td>
+        </tr>
+        <tr>
+          <td>Nationality</td>
+          <td>{{tabTwo.father_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Previous Nationality</td>
+          <td>{{tabTwo.father_previous_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Place of Birth</td>
+          <td>{{tabTwo.father_place_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Country of birth</td>
+          <td>{{tabTwo.father_counrty_of_birth}}</td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <div class="content-center">Mother's Details</div>
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{tabTwo.mother_name}}</td>
+        </tr>
+        <tr>
+          <td>Nationality</td>
+          <td>{{tabTwo.mother_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Previous Nationality</td>
+          <td>{{tabTwo.mother_previous_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Place of Birth</td>
+          <td>{{tabTwo.mother_place_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Country of birth</td>
+          <td>{{tabTwo.mother_counrty_of_birth}}</td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <div class="content-center">Spouse's Details</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Applicants Marital Status</td>
+          <td>{{tabTwo.marital_status}}</td>
+        </tr>
+        <tr>
+          <td>Spouse Name</td>
+          <td>{{tabTwo.spouse_name}}</td>
+        </tr>
+        <tr>
+          <td>Spouse Nationality</td>
+          <td>{{tabTwo.spouse_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Spouse Previous Nationality</td>
+          <td>{{tabTwo.spouse_previous_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Spouse Place of Birth</td>
+          <td>{{tabTwo.spouse_place_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>Spouse Country of birth</td>
+          <td>{{tabTwo.spouse_counrty_of_birth}}</td>
+        </tr>
+        <tr>
+          <td>
+            Were your Parents/Grandparent (paternal/maternal) Pakistan
+            National or Belong to Pakistan held area?
+          </td>
+          <td>{{tabTwo.pakistani_grandparents}}</td>
+        </tr>
+        <tr>
+          <td>if yes details</td>
+          <td>{{tabTwo.pakistan_belong}}</td>
+        </tr>
+
+        <tr>
+          <th colspan="2">Details of Visa Sought</th>
+        </tr>
+        <tr>
+          <td>Place to be visited</td>
+          <td>{{tabThree.place_to_be_visited}} {{tabThree.place_to_be_visited_line_2}}</td>
+        </tr>
+        <tr>
+          <td>Visa duration</td>
+          <td>{{tabThree.visa_duration}}</td>
+        </tr>
+        <tr>
+          <td>no of entries</td>
+          <td>{{tabThree.no_of_enteries}}</td>
+        </tr>
+        <tr>
+          <td>port of arrival</td>
+          <td>{{tabThree.port_of_arrival_in_india}}</td>
+        </tr>
+        <tr>
+          <td>exit port from india</td>
+          <td>{{tabThree.exit_port_from_india}}</td>
+        </tr>
+
+        <!-- Previous Visa/Currentlt Valid Visa Details -->
+        <tr>
+          <th colspan="2">Previous Visa/Currentlt Valid Visa Details</th>
+        </tr>
+        <tr>
+          <td>Have you ever visited India before?</td>
+          <td>{{tabThree.have_you_ever_visted_india}}</td>
+        </tr>
+        {{#ifCond tabThree.have_you_ever_visted_india '==' 'yes'}}
+        <tr>
+          <td>Address</td>
+          <td>{{tabThree.previously_visited_address}}</td>
+        </tr>
+        <tr>
+          <td>Cities previously visited in India</td>
+          <td>{{tabThree.previously_visited_cities}}</td>
+        </tr>
+        <tr>
+          <td>Last Indian Visa No/Currently Valid Indian Visa No.</td>
+          <td>{{tabThree.last_current_india_visit_number}}</td>
+        </tr>
+        <tr>
+          <td>Type of Visa</td>
+          <td>{{tabThree.previous_visited_passport_type}}</td>
+        </tr>
+        <tr>
+          <td>Place of Issue</td>
+          <td>{{tabThree.previous_current_place_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>Date of Issue</td>
+          <td>{{tabThree.previous_current_date_of_issue}}</td>
+        </tr>
+        <tr>
+          <td>Ever permission denied</td>
+          <td>{{tabThree.has_permission_to_stay_indian_refused}}</td>
+        </tr>
+        {{/ifCond}}
+        <tr>
+          <td>
+            Has permission to visit or to extend stay in India previously been
+            refused?
+          </td>
+          <td>{{tabThree.has_permission_to_stay_indian_refused}}</td>
+        </tr>
+        <tr>
+          <td>If so, when and by whom (mention Control No. and date also)</td>
+          <td>{{tabThree.reason_of_refused_control_no_and_date}}</td> <!-- left -->
+        </tr>
+        {{#ifCond tabOne.visa_service '==' 'eBUSINESS VISA'}}
+        <!-- business details  -->
+        <tr>
+          <th colspan="2">Business Details</th>
+        </tr>
+        <tr>
+          <td>Company Name in India</td>
+          <td>{{tabThree.company_name_india}}</td>
+        </tr>
+        <tr>
+          <td>Address and Phone in India</td>
+          <td>{{tabThree.address_phone_india}}</td>
+        </tr>
+        <tr>
+          <td>Website Link in India</td>
+          <td>{{tabThree.website_india}}</td>
+        </tr>
+        <tr>
+          <td>Company Name in Nationality</td>
+          <td>{{tabThree.company_name_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Address and Phone in Nationality</td>
+          <td>{{tabThree.address_phone_nationality}}</td>
+        </tr>
+        <tr>
+          <td>Website Link in Nationality</td>
+          <td>{{tabThree.website_nationality}}</td>
+        </tr>
+        {{/ifCond}}
+        <!-- Other Details -->
+        <tr>
+          <th colspan="2">Other Details</th>
+        </tr>
+        <tr>
+          <td>Countries Visited in Last 10 Years</td>
+          <td>{{tabThree.countries_visited_in_last_10_years}}</td>
+        </tr>
+
+        <!-- SAARC Details -->
+        <tr>
+          <th colspan="2">SAARC Country Visit Details</th>
+        </tr>
+        <tr>
+          <td>
+            Have you ever visited SAARC countries (except your own country)
+            during last 3 years
+          </td>
+          <td>{{tabThree.have_you_ever_saarc_country}}</td>
+        </tr>
+
+        <!-- Reference Details -->
+        <tr>
+          <th colspan="2">Reference Details</th>
+        </tr>
+        <tr>
+          <td>Reference Name in India</td>
+          <td>{{tabThree.reference_name_in_india}}</td>
+        </tr>
+        <tr>
+          <td>Reference Address in India</td>
+          <td>{{tabThree.reference_in_india_address}}</td>
+        </tr>
+
+        <tr>
+          <td>Reference Phone in India</td>
+          <td>{{tabThree.reference_in_india_phone_no}}</td>
+        </tr>
+
+        <tr>
+          <td>Reference Name in selected Nationality</td>
+          <td>{{tabThree.reference_name_in_albania}}</td>
+        </tr>
+        <tr>
+          <td>Reference Address in selected Nationality</td>
+          <td>{{tabThree.reference_address}}</td>
+        </tr>
+
+        <tr>
+          <td>Reference Phone in selected Nationality</td>
+          <td>{{tabThree.reference_phone_in_nationality}}</td>
+        </tr>
+
+        <!-- Reference Details -->
+        <tr>
+          <th colspan="2">
+            Please provide below given details,Please give details if marked
+            Yes
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Have you ever been arrested/prosected convicted by Court of Law of
+            any Country ?
+          </td>
+          <td>{{tabThree.que1}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que1Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever been refused entry/deported by any country including
+            India ?:
+          </td>
+          <td>{{tabThree.que2}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que2Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever been Engaged in Human trafficking?/Drug
+            trafficking/Child abuse/Crime against women/ Economic offense /
+            Financial fraud:
+          </td>
+          <td>{{tabThree.que3}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que3Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever been engaged in Cyber Crime/Terrorist activites/
+            sabotage/ Espionage/Genocide/Political killing/other act of
+            violence ?
+          </td>
+          <td>{{tabThree.que4}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que4Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever by any means or medium ,expresed views that justify
+            or glorify terrorist violence or that may encourage others to
+            terrorist act or other serious criminal acts?
+          </td>
+          <td>{{tabThree.que5}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que5Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            Have you ever been sought asyium (political or otherwise) in any
+            country?
+          </td>
+          <td>{{tabThree.que6}}</td>
+        </tr>
+        <tr>
+          <td>
+            reason
+          </td>
+          <td>{{tabThree.que6Reason}}</td>
+        </tr>
+        <tr>
+          <td>
+            I TEST, hereby declare that the information furnished above is
+            correct to the best of my knowledge and belief.In case the
+            information is found false at any stage, i am liable for legal
+            action/deportation/blacklisting or any other action as deemed fit
+            by the Government of India
+          </td>
+          <td>accepted</td>
+        </tr>
+      </table>
+      <h4>Documents</h4>
+      {{#each uploads}}
+      <div>
+        <div class="img-container">
+          <p style="font-size: 10px;">
+          {{this}}
+          </p>
+        </div>
+        {{/each}}
+
+
+
+
+      </div>
+</body>
+
+</html>
